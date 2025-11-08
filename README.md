@@ -84,3 +84,40 @@ A estrutura da tela utiliza os widgets Scaffold e AppBar como base, conforme sol
 A captura de tela abaixo demonstra o aplicativo em execução no emulador (Android Virtual Device - AVD), exibindo os dados que foram persistidos no banco de dados na etapa anterior:
 <img width="397" height="862" alt="image" src="https://github.com/user-attachments/assets/2db57204-cdf3-4f00-85e6-2445aafead3a" />
 
+## Parte 3: Qualidade de Software e Testes
+Nesta última etapa, o foco foi garantir a robustez e a qualidade do código-fonte através de testes automatizados e refatoração, seguindo os princípios de "Clean Code". 
+
+### 1. Refatoração e Boas Práticas (Clean Code)
+Antes da implementação dos testes, o código-fonte foi revisado e refatorado, aplicando as seguintes melhorias:
+
+
+Formatação Consistente: O comando flutter format . foi executado em todo o projeto para garantir um padrão de formatação. 
+
+
+Modificador const: Adicionamos o modificador const em todos os widgets estáticos (como Text, Padding, Scaffold, etc.) para melhorar a performance de renderização. 
+
+Injeção de Dependência: A ListaProdutosScreen foi refatorada para receber o ProdutoRepository via construtor. Isso desacoplou a tela da camada de dados e foi essencial para permitir o "mock" do repositório durante os testes de widget.
+
+
+Remoção de Código Morto: Todo código comentado ou que não estava sendo utilizado foi removido. 
+
+### 2. Testes de Unidade (Unit Tests)
+Foram implementados 4 testes de unidade (Unit Tests) para validar a lógica de negócios e as operações CRUD nos Repositórios, utilizando um banco de dados em memória (sqflite_common_ffi) para isolar os testes.
+
+
+Descrição do Teste Mais Complexo (Teste 3: Atualizar):
+
+O teste de atualização (Deve atualizar um produto) é crucial. Ele garante que a lógica de UPDATE está funcionando corretamente. O teste primeiro salva um produto, depois o recupera, modifica seus valores (preço e estoque) e chama o atualizarProduto(). Por fim, ele busca o produto novamente e verifica se os novos valores foram persistidos no banco. Isso garante que os dados não estão apenas sendo modificados em memória, mas sim no banco. 
+
+### 3. Testes de Widget (Widget Tests)
+Foram implementados 2 testes de widget (Widget Tests) para validar a renderização da interface e sua interatividade. 
+
+
+Descrição do Teste Mais Relevante (Teste 1: Lista Vazia):
+
+O teste (Tela de Listagem deve exibir mensagem quando vazia) valida um cenário de UI fundamental. Usando um "Mock Repository" (um repositório falso), nós simulamos uma resposta de banco de dados retornando uma lista vazia. O teste então verifica se a tela, ao invés de quebrar, renderiza corretamente a mensagem "Nenhum produto cadastrado." para o usuário. Isso garante que a UI reage de forma controlada a diferentes estados de dados. 
+
+### 4. Resultados da Execução dos Testes
+O comando flutter test foi executado e todos os testes de unidade e widget passaram com sucesso, confirmando a estabilidade da aplicação. 
+
+<img width="922" height="62" alt="image" src="https://github.com/user-attachments/assets/b966f011-a969-45ab-922e-eb296d292361" />
