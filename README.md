@@ -56,3 +56,4 @@ Execute flutter run para rodar o aplicativo.
 Resultado do Teste de Lógica (Console):
 
 Conforme solicitado, foi executado um teste na função main() para validar a inserção e leitura no banco. O resultado abaixo confirma que a Categoria ("Placa-Mãe") foi salva (recebendo ID: 1) e que o Produto ("Asus ROG Strix...") foi salvo e associado corretamente a ela (CatID: 1)
+<img width="635" height="597" alt="image" src="https://github.com/user-attachments/assets/c452ce05-37b8-4978-8d51-d64375223063" />
