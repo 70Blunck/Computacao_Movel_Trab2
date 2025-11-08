@@ -1,4 +1,4 @@
-# Computacao_Movel_Trab2
+# Computação Móvel Trabalho 2
 
 ## Parte 1: Camada de Dados e Persistência
 O objetivo desta primeira parte foi migrar a aplicação de dados em memória para uma solução com persistência local, aplicando o padrão Repository para isolar o acesso ao banco de dados.
