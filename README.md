@@ -42,7 +42,7 @@ O repositório itera sobre essa lista e usa o método estático fromMap() do mod
 Todo esse processo é assíncrono, utilizando Future, async e await para não bloquear a interface do usuário.
 
 
-###4. Execução e Teste de Console
+### 4. Execução e Teste de Console
 Para executar o projeto:
 
 Clone este repositório.
@@ -57,3 +57,30 @@ Resultado do Teste de Lógica (Console):
 
 Conforme solicitado, foi executado um teste na função main() para validar a inserção e leitura no banco. O resultado abaixo confirma que a Categoria ("Placa-Mãe") foi salva (recebendo ID: 1) e que o Produto ("Asus ROG Strix...") foi salvo e associado corretamente a ela (CatID: 1)
 <img width="635" height="597" alt="image" src="https://github.com/user-attachments/assets/c452ce05-37b8-4978-8d51-d64375223063" />
+
+## Parte 2: Primeira Interface do Usuário
+Nesta etapa, o projeto de console foi transformado em uma aplicação Flutter visual. O objetivo foi conectar a camada de dados (Parte 1) a uma interface gráfica, exibindo os dados persistidos na tela do emulador.
+
+### 1. Integração dos Dados e UI
+Para exibir os dados do banco de dados na tela, a integração foi feita da seguinte forma:
+
+Foi criado um StatelessWidget (ListaProdutosScreen) para a tela principal. 
+
+
+Dentro do build da tela, foi utilizado um FutureBuilder.
+
+O future do FutureBuilder foi conectado ao método produtoRepo.listarTodosProdutos(), que busca os dados assincronamente no banco.
+
+Enquanto os dados são carregados, um CircularProgressIndicator é exibido.
+
+Quando os dados são recebidos (snapshot.hasData), eles são passados para um ListView, que renderiza cada produto da lista usando um Card e um ListTile, exibindo seus atributos (nome, fabricante, preço e estoque).
+
+
+
+A estrutura da tela utiliza os widgets Scaffold e AppBar como base, conforme solicitado. 
+
+
+### 2. Resultado no Emulador
+A captura de tela abaixo demonstra o aplicativo em execução no emulador (Android Virtual Device - AVD), exibindo os dados que foram persistidos no banco de dados na etapa anterior:
+<img width="397" height="862" alt="image" src="https://github.com/user-attachments/assets/2db57204-cdf3-4f00-85e6-2445aafead3a" />
+
