@@ -1,0 +1,38 @@
+name: loja_pecas_app
+description: "Um aplicativo Flutter para gerenciar uma loja de peças de computador, como parte da avaliação processual."
+
+# Impede a publicação acidental no pub.dev.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0' # Use a versão SDK que seu Flutter suporta
+
+# Dependências principais do seu aplicativo
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Ícones padrão do iOS
+  cupertino_icons: ^1.0.2
+
+  # Pacote do banco de dados SQL
+  sqflite: ^2.3.3+1
+
+  # Pacote para encontrar o caminho do banco no celular
+  path: ^1.9.0
+
+# Dependências de desenvolvimento (só usadas para testes e build)
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Pacote para criar um banco de dados FALSO em memória para os testes
+  sqflite_common_ffi: ^2.3.3
+
+  flutter_lints: ^2.0.0
+
+# Configurações do Flutter
+flutter:
+  uses-material-design: true
